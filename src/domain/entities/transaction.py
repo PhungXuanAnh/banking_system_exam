@@ -9,10 +9,10 @@ class TransactionType(Enum):
 
 
 class Transaction(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int = None
     account_id: int
     type: TransactionType
     amount: float
     created_at: datetime = datetime.now()
-
-    model_config = ConfigDict(from_attributes=True)
